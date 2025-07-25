@@ -1,6 +1,11 @@
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/yourusername/image-compressor.git
-git push -u origin main
+services:
+  - type: web
+    name: image-compressor
+    runtime: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python main.py"
+    env: 
+      - key: PYTHON_VERSION
+        value: 3.11
+    plan: free
+    autoDeploy: true
