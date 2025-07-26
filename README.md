@@ -43,7 +43,7 @@ Built using **Python (Flask)** and styled with **Bootstrap**, it's ideal for any
 The backend uses **Pillow** to process and compress the image, and Flask handles the routing and temporary storage.
 
 ## 🧰 Project Structure
-
+```
 Squeezy/
 │
 ├── templates/
@@ -54,7 +54,7 @@ Squeezy/
 ├── main.py                # Flask backend
 ├── requirements.txt       # Python dependencies
 └── README.md              # This file
-
+```
 
 ## 🙋‍♂️ Author
 
