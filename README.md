@@ -59,8 +59,9 @@ Squeezy/
 ## 🙋‍♂️ Author
 
 **Ameya Kulkarni**
-🔗 [LinkedIn](https://www.linkedin.com/in/ameya-kulkarni-a31b74246/)
-🐙 [GitHub](https://github.com/Ameya79)
+💻 [ GitHub](https://github.com/Ameya79)
+📫 [Connect with me on LinkedIn](https://www.linkedin.com/in/ameya-kulkarni-a31b74246)
+🎯 [View my Codolio](https://codolio.com/profile/Ameya%20Kulkarni)
 
 ---
 
@@ -68,7 +69,7 @@ Squeezy/
 
 This project is open-source and free to use.
 Feel free to fork, modify, and contribute!
-🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩
+🍋‍🟩🍋‍🟩🍋‍🟩
 ---
 
 ## ⭐ Like the Project?
