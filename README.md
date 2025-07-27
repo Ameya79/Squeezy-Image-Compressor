@@ -1,5 +1,5 @@
 
-# 🗜️ Squeezy - Image Compressor & Resizer
+# 🍋‍🟩 Squeezy - Image Compressor & Resizer
 
 **Squeezy** is a simple, beginner-friendly web app that compresses and resizes images directly in your browser.
 
@@ -68,7 +68,7 @@ Squeezy/
 
 This project is open-source and free to use.
 Feel free to fork, modify, and contribute!
-
+🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩🍋‍🟩
 ---
 
 ## ⭐ Like the Project?
