@@ -1,52 +1,48 @@
 import threading
 from flask import Flask, render_template, request, send_file
+from PIL import Image
 import uuid
 import os  # just interacts with the underlying system
 import cv2  # for image processing
-import numpy as np  # to convert image files into array format for OpenCV
+import numpy as np  # to convert file buffer to array for OpenCV
 
-app = Flask(__name__)  # start Flask app
+app = Flask(__name__)  # start flask
 
 @app.route('/')
 def index():
-    return render_template('index.html')  # serve homepage
+    return render_template('index.html')  # homepage
 
 @app.route('/upscale')
 def upscale():
-    return render_template('upscale.html')  # serve upscale page
+    return render_template('upscale.html')  # upscale page
 
 @app.route('/compress', methods=['POST'])
 def compress():
-    # get image file and form inputs from frontend
+    # get file and inputs from form
     image_file = request.files['image']
-    compression_percent = int(request.form['quality'])  # user selected quality to reduce
-    resize_percent = int(request.form['resize_percent'])  # optional resize (scale down)
-    quality = 100 - compression_percent  # convert to OpenCV compatible quality
+    compression_percent = int(request.form['quality'])
+    resize_percent = int(request.form['resize_percent'])
+    quality = 100 - compression_percent
 
-    # read image into memory as an array OpenCV can work with
-    file_bytes = np.frombuffer(image_file.read(), np.uint8)
-    img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
+    # open image using PIL
+    img = Image.open(image_file)
 
-    if img is None:
-        return "Invalid image", 400
-
-    # if user selected resize below 100%, apply it
+    # optionally resize the image if resize percent < 100
     if resize_percent < 100:
-        new_width = int(img.shape[1] * resize_percent / 100)
-        new_height = int(img.shape[0] * resize_percent / 100)
-        img = cv2.resize(img, (new_width, new_height), interpolation=cv2.INTER_AREA)
+        width, height = img.size
+        new_width = int(width * resize_percent / 100)
+        new_height = int(height * resize_percent / 100)
+        img = img.resize((new_width, new_height), Image.LANCZOS)
 
-    # generate a unique filename to avoid overwriting
+    # generate file name and path
     filename = f"{uuid.uuid4().hex}.jpg"
     output = os.path.join("temp", filename)
-
-    # create temp folder if not already present
     os.makedirs("temp", exist_ok=True)
 
-    # save compressed image with given quality
-    cv2.imwrite(output, img, [int(cv2.IMWRITE_JPEG_QUALITY), quality])
+    # save compressed image using PIL
+    img.save(output, optimize=True, quality=quality)
 
-    # auto-delete after 5 seconds to save storage and maintain privacy
+    # schedule delete after 5 seconds
     def delete_file(path):
         try:
             os.remove(path)
@@ -65,36 +61,30 @@ def upscale_process():
     if 'image' not in request.files or request.files['image'].filename == '':
         return "No file uploaded", 400
 
-    # get image and user-selected scale from frontend
+    # get file and scale
     image_file = request.files['image']
-    scale = int(request.form['scale'])  # scale = 2 or 4 (for 2x or 4x)
+    scale = int(request.form['scale'])
 
     try:
-        # read uploaded image as OpenCV image array
+        # convert uploaded image file to array for OpenCV
         file_bytes = np.frombuffer(image_file.read(), np.uint8)
         img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
 
         if img is None:
             return "Invalid image file", 400
 
-        # calculate new size based on scale value
+        # upscale using cubic interpolation
         new_width = img.shape[1] * scale
         new_height = img.shape[0] * scale
-
-        # resize using CUBIC interpolation which is better for upscaling
         upscaled = cv2.resize(img, (new_width, new_height), interpolation=cv2.INTER_CUBIC)
 
-        # generate unique filename and path
-        output_filename = f"{uuid.uuid4().hex}_upscaled.jpg"
-        output_path = os.path.join("temp", output_filename)
-
-        # make temp folder if missing
+        # save upscaled image to temp
+        filename = f"{uuid.uuid4().hex}_upscaled.jpg"
+        output = os.path.join("temp", filename)
         os.makedirs("temp", exist_ok=True)
+        cv2.imwrite(output, upscaled)
 
-        # save the upscaled image
-        cv2.imwrite(output_path, upscaled)
-
-        # auto-delete upscaled image after 5 seconds
+        # delete file after 5 seconds
         def delete_file(path):
             try:
                 os.remove(path)
@@ -102,15 +92,15 @@ def upscale_process():
             except Exception as e:
                 print(f"Delete error: {e}")
 
-        threading.Timer(5.0, delete_file, args=[output_path]).start()
+        threading.Timer(5.0, delete_file, args=[output]).start()
 
-        # return upscaled image file to user
-        return send_file(output_path, as_attachment=True)
+        # return file
+        return send_file(output, as_attachment=True)
 
     except Exception as e:
         print(f"Upscaling error: {e}")
         return f"Error occurred: {e}", 500
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))  # set port from env or use 5000
-    app.run(debug=False, host="0.0.0.0", port=port)  # run Flask app publicly
+    port = int(os.environ.get("PORT", 5000))  # default port or from env
+    app.run(debug=False, host="0.0.0.0", port=port)
