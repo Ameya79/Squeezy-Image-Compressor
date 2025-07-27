@@ -78,11 +78,17 @@ def upscale_process():
         new_height = img.shape[0] * scale
         upscaled = cv2.resize(img, (new_width, new_height), interpolation=cv2.INTER_CUBIC)
 
-        # save upscaled image to temp
+        # apply strong sharpening filter
+        sharpening_kernel = np.array([[0, -1, 0],
+                                      [-1, 5.5, -1],
+                                      [0, -1, 0]])
+        sharpened = cv2.filter2D(upscaled, -1, sharpening_kernel)
+
+        # save upscaled + sharpened image to temp
         filename = f"{uuid.uuid4().hex}_upscaled.jpg"
         output = os.path.join("temp", filename)
         os.makedirs("temp", exist_ok=True)
-        cv2.imwrite(output, upscaled)
+        cv2.imwrite(output, sharpened)
 
         # delete file after 5 seconds
         def delete_file(path):
@@ -100,6 +106,7 @@ def upscale_process():
     except Exception as e:
         print(f"Upscaling error: {e}")
         return f"Error occurred: {e}", 500
+
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))  # default port or from env
