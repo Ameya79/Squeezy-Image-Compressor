@@ -1,3 +1,5 @@
 Flask
 Pillow
 gunicorn
+opencv-python
+python-dotenv
