@@ -49,14 +49,22 @@
 
 ---
 
----
-
 ## 🔐 Security & Privacy
 
 ⚠️ **Your files are NEVER stored.**
 
 - Images and PDFs are **automatically deleted** from the server within 5 seconds of download.
 - No logs, no tracking, no nonsense — just clean, fast processing.
+
+---
+
+## ⚠️ Limitations
+
+- Max image size: **40 MB** or **50 megapixels**
+- No smart AI compression – only basic resizing & quality reduction
+- Files are **auto-deleted in 5 seconds** after download
+- PDF merge is simple – no reordering or layout control
+- Only standard formats (JPEG, PNG) supported
 
 ---
 
