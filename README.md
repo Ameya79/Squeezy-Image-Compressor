@@ -71,3 +71,6 @@ cd squeezy
 pip install -r requirements.txt
 python main.py
 
+Then open your browser at http://localhost:5000
+
+
