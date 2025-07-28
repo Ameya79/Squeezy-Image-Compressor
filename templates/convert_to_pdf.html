@@ -3,33 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upscale Image</title>
+    <title>Convert Images to PDF</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
-    <div class="container mt-5">
-        <div class="col-12 col-md-8 col-lg-6 mx-auto p-4 bg-white rounded shadow">
-            <h2 class="text-center mb-3">Squeezy Upscaler</h2>
-            <h5 class="text-center mb-4 text-muted">Sharpens Your Image</h5>
 
-            <form action="/upscale-process" method="POST" enctype="multipart/form-data">
-                <div class="mb-3">
-                    <label class="form-label">Select Image:</label>
-                    <input type="file" name="image" class="form-control" required>
-                </div>
+<div class="container mt-5 p-4 bg-white rounded shadow">
+    <h2 class="text-center mb-4">🖼️ Images to PDF</h2>
 
-                <div class="mb-3">
-                    <label class="form-label">Upscale by:</label>
-                    <select name="scale" class="form-select" required>
-                        <option value="2">2x 🍋‍🟩</option>
-                        <option value="4">4x 🍋‍🟩🍋‍🟩</option>
-                    </select>
-                    <div class="form-text">Increases size and sharpness using resize.</div>
-                </div>
-
-                <button type="submit" class="btn btn-success w-100">Sharpen It!</button>
-            </form>
+    <!-- sends multiple images to /convert-to-pdf -->
+    <form action="/convert-to-pdf" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label class="form-label">Select Images (Multiple allowed):</label>
+            <input type="file" name="images[]" class="form-control" multiple required>
         </div>
+        <button type="submit" class="btn btn-success w-100">📄 Generate PDF</button>
+    </form>
+
+    <div class="text-center mt-3">
+        <a href="/" class="btn btn-outline-secondary w-100">🔙 Back to Compressor</a>
     </div>
+</div>
+
 </body>
 </html>
