@@ -49,3 +49,25 @@
 
 ---
 
+---
+
+## 🔐 Security & Privacy
+
+⚠️ **Your files are NEVER stored.**
+
+- Images and PDFs are **automatically deleted** from the server within 5 seconds of download.
+- No logs, no tracking, no nonsense — just clean, fast processing.
+
+---
+
+## ⚙️ Deployment
+
+Deployed using [**Render.com**](https://render.com/)  
+To run locally:
+
+```
+git clone https://github.com/your-username/squeezy.git
+cd squeezy
+pip install -r requirements.txt
+python main.py
+
