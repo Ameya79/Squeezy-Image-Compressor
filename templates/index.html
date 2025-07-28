@@ -3,45 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Compressor</title>
-    <!-- Bootstrap link added -->
+    <title>Squeezy - Image Compressor</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 
-    <div class="container mt-5 p-4 bg-white rounded shadow">
-        <h2 class="text-center mb-4">📦Squeezy🍋‍🟩</h2>
+<div class="container mt-5 p-4 bg-white rounded shadow">
+    <h2 class="text-center mb-3">📦 Squeezy</h2>
+    <h5 class="text-center mb-4 text-muted">Image Compressor Tool</h5>
 
-        <!-- stuff gets send to /compress  -->
-        <form action="/compress" method="POST" enctype="multipart/form-data">
-            
-            <div class="mb-3">
-                <label class="form-label">Select Image: </label>
-                <input type="file" name="image" class="form-control" required>
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Resize to (% of original size):</label>
-                <!-- resize -->
-                <input type="number" name="resize_percent" min="10" max="100" value="100" class="form-control" required>
-                <div class="form-text">Lower the size → lower the image resolution.</div>
-            </div>
-
-            <div class="mb-3">
-                <!-- compress -->
-                <label class="form-label">Compress by (%): </label>
-                <input type="number" name="quality" min="1" max="99" value="50" class="form-control">
-                <div class="form-text">Higher the compression → smaller the file size.</div>
-                <!-- default value is 50 -->
-            </div>
-
-            
-            <button type="submit" class="btn btn-primary w-100">Squeez it!</button>
-        </form>
-        <div class="text-center mt-3">
-            <a href="/upscale" class="btn btn-outline-secondary">🪄 Go to Squeezy Upscaler</a>
+    <!-- sends form data to /compress -->
+    <form action="/compress" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label class="form-label">Select Image:</label>
+            <input type="file" name="image" class="form-control" required>
         </div>
+
+        <div class="mb-3">
+            <label class="form-label">Resize to (% of original size):</label>
+            <input type="number" name="resize_percent" min="10" max="100" value="100" class="form-control" required>
+            <div class="form-text">Lower the size → lower the image resolution.</div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Compress by (%):</label>
+            <input type="number" name="quality" min="1" max="99" value="50" class="form-control" required>
+            <div class="form-text">Higher the compression → smaller the file size.</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">🎯 Compress Image</button>
+    </form>
+
+    <div class="text-center mt-3">
+        <a href="/convert-to-pdf" class="btn btn-outline-secondary w-100">📄 Convert Images to PDF</a>
     </div>
+</div>
 
 </body>
 </html>
