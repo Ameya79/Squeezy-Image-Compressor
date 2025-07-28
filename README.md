@@ -3,7 +3,6 @@
 **Squeezy** is a beginner-friendly web app built with **Python (Flask)** that compresses, resizes, and even converts multiple images into a single PDF — all in the browser, with no file stored beyond 5 seconds.
 
 🌐 **Live Demo**: [squeezy-image-compressor.onrender.com](https://squeezy-image-compressor.onrender.com)
-
 ---
 
 ## 📸 Features
@@ -106,6 +105,7 @@ This project is open-source — feel free to fork it, build on it, or use it in 
 
 Drop a ⭐ if it saved your time — and feel free to contribute!
 Suggestions & pull requests are welcome 😊
+
 
 🍋‍🟩🍋‍🟩🍋‍🟩
 
