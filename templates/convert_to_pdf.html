@@ -9,13 +9,17 @@
 <body class="bg-light">
 
 <div class="container mt-5 p-4 bg-white rounded shadow">
-    <h2 class="text-center mb-4">Images to PDF 🖼️->🍋‍🟩.pdf </h2>
+    <h2 class="text-center mb-4">Images to PDF 🖼️ → 🍋‍🟩.pdf</h2>
 
     <!-- sends multiple images to /convert-to-pdf -->
     <form action="/convert-to-pdf" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
             <label class="form-label">Select Images (Multiple allowed):</label>
             <input type="file" name="images[]" class="form-control" multiple required>
+            <div class="form-text text-muted">
+                ⚠️ Max size: 40MB per image.<br>
+                ⏱️ Large images may take a few seconds to convert. Have a glass of lemonade till then 🍋‍🟩!
+            </div>
         </div>
         <button type="submit" class="btn btn-success w-100">📄 Generate PDF</button>
     </form>
