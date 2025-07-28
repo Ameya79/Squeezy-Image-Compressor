@@ -76,12 +76,12 @@ Then open your browser at http://localhost:5000
 
 ---
 
-🙋‍♂️ Author
+## 🙋‍♂️ Author
 
-Ameya Kulkarni
-💻 GitHub
-📫 LinkedIn
-🌐 My Codolio
+**Ameya Kulkarni**  
+💻 [GitHub](https://github.com/Ameya79)  
+📫 [LinkedIn](https://www.linkedin.com/in/ameya-kulkarni-a31b74246)  
+🎯 [Codolio Profile](https://codolio.com/profile/Ameya%20Kulkarni)
 
 
 ---
