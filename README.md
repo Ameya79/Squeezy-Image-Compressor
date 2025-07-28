@@ -73,4 +73,21 @@ python main.py
 
 Then open your browser at http://localhost:5000
 
+---
+
+🙋‍♂️ Author
+
+Ameya Kulkarni
+💻 GitHub
+📫 LinkedIn
+🌐 My Codolio
+
+
+---
+
+📜 License
+
+MIT License.
+This project is open-source — feel free to fork it, build on it, or use it in your own projects.
+
 
