@@ -92,3 +92,13 @@ MIT License.
 This project is open-source — feel free to fork it, build on it, or use it in your own projects.
 
 
+---
+
+⭐ Like the Project?
+
+Drop a ⭐ if it saved your time — and feel free to contribute!
+Suggestions & pull requests are welcome 😊
+
+🍋‍🟩🍋‍🟩🍋‍🟩
+
+
