@@ -1,4 +1,4 @@
-# 🍋‍🟩 Squeezy - Image Compressor, Resizer & PDF Merger
+# 🍋‍🟩 Squeezy - Image Compressor, Resizer & Image to PDF Converter 
 
 **Squeezy** is a lightning-fast, beginner-friendly web app built with **Python (Flask)** that compresses, resizes, and even converts multiple images into a single PDF — all in the browser, with no file stored beyond 5 seconds.
 
