@@ -2,47 +2,47 @@ import threading
 from flask import Flask, render_template, request, send_file
 from PIL import Image
 import uuid
-import os  # just interacts with the underlying system
-import cv2  # for image processing
-import numpy as np  # to convert file buffer to array for OpenCV
+import os  # to interact with filesystem
 
-app = Flask(__name__)  # start flask
+app = Flask(__name__)  # initialize Flask app
 
 @app.route('/')
 def index():
-    return render_template('index.html')  # homepage
+    # loads homepage with compressor
+    return render_template('index.html')
 
-@app.route('/upscale')
-def upscale():
-    return render_template('upscale.html')  # upscale page
+@app.route('/convert-to-pdf')
+def pdf_form():
+    # loads image-to-PDF page
+    return render_template('convert_to_pdf.html')
 
 @app.route('/compress', methods=['POST'])
 def compress():
-    # get file and inputs from form
+    # gets uploaded image and form inputs
     image_file = request.files['image']
     compression_percent = int(request.form['quality'])
     resize_percent = int(request.form['resize_percent'])
-    quality = 100 - compression_percent
+    quality = 100 - compression_percent  # Pillow needs quality value from 1–100
 
     # open image using PIL
     img = Image.open(image_file)
 
-    # optionally resize the image if resize percent < 100
+    # resize the image if needed
     if resize_percent < 100:
         width, height = img.size
         new_width = int(width * resize_percent / 100)
         new_height = int(height * resize_percent / 100)
         img = img.resize((new_width, new_height), Image.LANCZOS)
 
-    # generate file name and path
+    # create output path
     filename = f"{uuid.uuid4().hex}.jpg"
     output = os.path.join("temp", filename)
     os.makedirs("temp", exist_ok=True)
 
-    # save compressed image using PIL
+    # save compressed image
     img.save(output, optimize=True, quality=quality)
 
-    # schedule delete after 5 seconds
+    # schedule file deletion after 5 seconds
     def delete_file(path):
         try:
             os.remove(path)
@@ -52,62 +52,38 @@ def compress():
 
     threading.Timer(5.0, delete_file, args=[output]).start()
 
-    # return file to user
+    # return compressed file to user
     return send_file(output, as_attachment=True)
 
-@app.route('/upscale-process', methods=['POST'])
-def upscale_process():
-    # check if image is uploaded
-    if 'image' not in request.files or request.files['image'].filename == '':
-        return "No file uploaded", 400
+@app.route('/convert-to-pdf', methods=['POST'])
+def convert_to_pdf():
+    # receives multiple images as input
+    files = request.files.getlist('images[]')
+    images = []
 
-    # get file and scale
-    image_file = request.files['image']
-    scale = int(request.form['scale'])
+    # convert all images to RGB and store
+    for file in files:
+        try:
+            img = Image.open(file).convert("RGB")
+            images.append(img)
+        except Exception as e:
+            return f"Error processing image: {e}", 400
 
-    try:
-        # convert uploaded image file to array for OpenCV
-        file_bytes = np.frombuffer(image_file.read(), np.uint8)
-        img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
+    if not images:
+        return "No valid images uploaded.", 400
 
-        if img is None:
-            return "Invalid image file", 400
+    # output file name and path
+    output_path = os.path.join("temp", f"{uuid.uuid4().hex}_merged.pdf")
+    os.makedirs("temp", exist_ok=True)
 
-        # upscale using cubic interpolation
-        new_width = img.shape[1] * scale
-        new_height = img.shape[0] * scale
-        upscaled = cv2.resize(img, (new_width, new_height), interpolation=cv2.INTER_CUBIC)
+    # save first image and append rest
+    images[0].save(output_path, save_all=True, append_images=images[1:])
 
-        # apply strong sharpening filter
-        sharpening_kernel = np.array([[0, -1, 0],
-                                      [-1, 5.5, -1],
-                                      [0, -1, 0]])
-        sharpened = cv2.filter2D(upscaled, -1, sharpening_kernel)
+    # auto-delete PDF after 5 seconds
+    threading.Timer(5.0, lambda: os.remove(output_path)).start()
 
-        # save upscaled + sharpened image to temp
-        filename = f"{uuid.uuid4().hex}_upscaled.jpg"
-        output = os.path.join("temp", filename)
-        os.makedirs("temp", exist_ok=True)
-        cv2.imwrite(output, sharpened)
-
-        # delete file after 5 seconds
-        def delete_file(path):
-            try:
-                os.remove(path)
-                print(f"Deleted: {path}")
-            except Exception as e:
-                print(f"Delete error: {e}")
-
-        threading.Timer(5.0, delete_file, args=[output]).start()
-
-        # return file
-        return send_file(output, as_attachment=True)
-
-    except Exception as e:
-        print(f"Upscaling error: {e}")
-        return f"Error occurred: {e}", 500
-
+    return send_file(output_path, as_attachment=True)
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))  # default port or from env
+    port = int(os.environ.get("PORT", 5000))
     app.run(debug=False, host="0.0.0.0", port=port)
