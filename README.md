@@ -1,9 +1,6 @@
+# 🍋‍🟩 Squeezy - Image Compressor, Resizer & PDF Merger
 
-# 🍋‍🟩 Squeezy - Image Compressor & Resizer
-
-**Squeezy** is a simple, beginner-friendly web app that compresses and resizes images directly in your browser.
-
-Built using **Python (Flask)** and styled with **Bootstrap**, it's ideal for anyone who wants a quick and efficient way to reduce image file sizes without losing too much quality.
+**Squeezy** is a lightning-fast, beginner-friendly web app built with **Python (Flask)** that compresses, resizes, and even converts multiple images into a single PDF — all in the browser, with no file stored beyond 5 seconds.
 
 🌐 **Live Demo**: [squeezy-image-compressor.onrender.com](https://squeezy-image-compressor.onrender.com)
 
@@ -11,68 +8,45 @@ Built using **Python (Flask)** and styled with **Bootstrap**, it's ideal for any
 
 ## 📸 Features
 
-- 📤 Upload any image (JPEG, PNG, etc.)
+- 📤 Upload any image (`JPG`, `PNG`, etc.)
 - 📏 Resize image by percentage (e.g., 50% of original size)
 - 🗜️ Compress image quality (e.g., reduce to 60% quality)
-- 📥 Instant download of the optimized image
-- 🧹 Auto-deletes images after sending (no data is stored)
-- 📱 Responsive design (mobile-friendly using Bootstrap)
+- 📄 Convert multiple images into a **single downloadable PDF**
+- ⚡ Instant processing and file download
+- 🧹 **Auto-deletes files** from server 5 seconds after sending — no storage, full privacy
+- 📱 Fully mobile-friendly UI using Bootstrap 5
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Part        | Tool           |
-|-------------|----------------|
-| Backend     | Python, Flask  |
-| Frontend    | HTML5, Bootstrap 5 |
-| Image Tools | Pillow (PIL)   |
-| Deployment  | Render         |
+| Part        | Tool             |
+|-------------|------------------|
+| Backend     | Python, Flask    |
+| Frontend    | HTML5, Bootstrap |
+| Imaging     | Pillow (PIL)     |
+| Deployment  | Render           |
 
 ---
 
 ## 🚀 How It Works
 
-1. **Upload** your image
-2. Choose how much to:
-   - **Resize** (reduce dimensions)
-   - **Compress** (reduce quality)
-3. Hit **Compress!**
-4. Download starts automatically with the compressed image
+### 🎯 Image Compression & Resizing
+1. Upload an image
+2. Choose:
+   - Resize (% of original)
+   - Compress (% quality reduction)
+3. Click **Compress**
+4. Instantly download your optimized image
 
-The backend uses **Pillow** to process and compress the image, and Flask handles the routing and temporary storage.
+### 📄 Convert Images to PDF
+1. Upload **multiple images**
+2. Hit **Generate PDF**
+3. Instantly get a single merged `.pdf` to download
 
-## 🧰 Project Structure
-```
-Squeezy/
-│
-├── templates/
-│   └── index.html         # HTML form with Bootstrap
-│
-├── temp/                  # Temporary folder for processed images (auto-deleted)
-│
-├── main.py                # Flask backend
-├── requirements.txt       # Python dependencies
-└── README.md              # This file
-```
-
-## 🙋‍♂️ Author
-
-**Ameya Kulkarni**
-💻 [ GitHub](https://github.com/Ameya79)
-📫 [Connect with me on LinkedIn](https://www.linkedin.com/in/ameya-kulkarni-a31b74246)
-🎯 [View my Codolio](https://codolio.com/profile/Ameya%20Kulkarni)
+✅ All image/PDF processing is handled on the backend using **Pillow**, and files are sent back immediately  
+❌ No data is stored — everything is **auto-deleted in 5 seconds**
 
 ---
 
-## 📜 License
-
-This project is open-source and free to use.
-Feel free to fork, modify, and contribute!
-🍋‍🟩🍋‍🟩🍋‍🟩
----
-
-## ⭐ Like the Project?
-
-Drop a ⭐ on the repo if you found it helpful!
-Pull requests and suggestions are always welcome 😊
+## 📁 Project Structure
