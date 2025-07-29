@@ -44,7 +44,7 @@
 3. Instantly get a single merged `.pdf` to download
 
 ✅ All image/PDF processing is handled on the backend using **Pillow**, and files are sent back immediately  
-❌ No data is stored — everything is **auto-deleted in 5 seconds**
+❌ No data is stored, everything is **auto-deleted in 5 seconds**
 
 ---
 
@@ -60,7 +60,7 @@
 ## ⚠️ Limitations
 
 - Max image size: **40 MB** or **50 megapixels**
-- PDF merge is simple – no reordering or layout control
+- PDF merge is simple, no reordering or layout control
 - Only standard formats (JPEG, PNG) supported
 
 ---
@@ -101,7 +101,7 @@ This project is open-source — feel free to fork it, build on it, or use it in 
 
 ⭐ Like the Project?
 
-Drop a ⭐ if it saved your time — and feel free to contribute!
+Drop a ⭐ if it saved your time, and feel free to contribute!
 Suggestions & pull requests are welcome 😊
 
 
