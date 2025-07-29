@@ -12,8 +12,8 @@
 - 🗜️ Compress image quality (e.g., reduce to 60% quality)
 - 📄 Convert multiple images into a **single downloadable PDF**
 - ⚡ Instant processing and file download
-- 🧹 **Auto-deletes files** from server 5 seconds after sending — no storage, full privacy
-- 📱 Fully mobile-friendly UI using Bootstrap 5
+- 🧹 **Auto-deletes files** from server 5 seconds after sending, no storage, full privacy
+- 📱 mobile-friendly UI using Bootstrap 5
 
 ---
 
