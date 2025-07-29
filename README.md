@@ -44,7 +44,7 @@
 2. Hit **Generate PDF**
 3. Instantly get a single merged `.pdf` to download
 
-✅ All image/PDF processing is handled on the backend using **Pillow**, and files are sent back immediately  
+✅ All image/PDF processing is handled on the backend using **Bytes IO buffer**, and files are sent back immediately  
 ❌ No data is stored, everything is **auto-deleted in 5 seconds**
 
 ---
