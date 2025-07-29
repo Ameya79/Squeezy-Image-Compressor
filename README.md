@@ -53,7 +53,7 @@
 ⚠️ **Your files are NEVER stored.**
 
 - Images and PDFs are **automatically deleted** from the server within 5 seconds of download.
-- No logs, no tracking, no nonsense — just clean, fast processing.
+- No logs, no tracking, no nonsense,just clean, fast processing.
 
 ---
 
@@ -94,7 +94,7 @@ Then open your browser at http://localhost:5000
 📜 License
 
 MIT License.
-This project is open-source — feel free to fork it, build on it, or use it in your own projects.
+This project is open-source, feel free to fork it, build on it, or use it in your own projects.
 
 
 ---
