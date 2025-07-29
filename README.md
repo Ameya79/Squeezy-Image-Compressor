@@ -26,7 +26,7 @@
 | Imaging     | Pillow (PIL)     |
 | Deployment  | Render           |
 
-Bytes IO buffer for Image/s to PDF 
+- Bytes IO buffer for Image/s to PDF 
 ---
 
 ## 🚀 How It Works
