@@ -78,3 +78,33 @@ git clone https://github.com/your-username/squeezy.git
 cd squeezy
 pip install -r requirements.txt
 python main.py
+
+Then open your browser at http://localhost:5000
+
+
+---
+
+🙋‍♂️ Author
+
+Ameya Kulkarni
+💻 GitHub
+📫 LinkedIn
+🎯 Codolio Profile
+
+
+---
+
+📜 License
+
+MIT License.
+This project is open-source — feel free to fork it, build on it, or use it in your own projects.
+
+
+---
+
+⭐ Like the Project?
+Drop a ⭐ if it saved your time, and feel free to contribute! Suggestions & pull requests are welcome 😊
+
+🍋‍🟩🍋‍🟩🍋‍🟩
+
+
