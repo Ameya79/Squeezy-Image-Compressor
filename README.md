@@ -1,8 +1,9 @@
-# 🍋‍🟩 Squeezy - Image Compressor, Resizer & Image to PDF Converter/ Merger 
+# 🍋‍🟩 Squeezy - Image Compressor, Resizer & Image to PDF Converter/Merger
 
-**Squeezy** is a beginner-friendly web app built with **Python (Flask)** that compresses, resizes, and even converts multiple images into a single PDF, all in the browser, with no file stored beyond 5 seconds,thus maintaining privacy🔏 
+**Squeezy** is a beginner-friendly web app built with **Python (Flask)** that compresses, resizes, and converts multiple images into a single PDF — all in the browser, with no file stored beyond 5 seconds, thus maintaining privacy 🔏  
 
 🌐 **Live Demo**: [squeezy-image-compressor.onrender.com](https://squeezy-image-compressor.onrender.com)
+
 ---
 
 ## 📸 Features
@@ -12,8 +13,8 @@
 - 🗜️ Compress image quality (e.g., reduce to 60% quality)
 - 📄 Convert multiple images into a **single downloadable PDF**
 - ⚡ Instant processing and file download
-- 🧹 **Auto-deletes files** from server 5 seconds after sending, no storage, full privacy
-- 📱 mobile-friendly UI using Bootstrap 5
+- 🧹 **Auto-deletes files** from server 5 seconds after sending — no storage, full privacy
+- 📱 Mobile-friendly UI using Bootstrap 5
 
 ---
 
@@ -26,7 +27,8 @@
 | Imaging     | Pillow (PIL)     |
 | Deployment  | Render           |
 
-- Bytes IO buffer for Image/s to PDF 
+- Uses **BytesIO** buffer for image-to-PDF conversion
+
 ---
 
 ## 🚀 How It Works
@@ -44,8 +46,8 @@
 2. Hit **Generate PDF**
 3. Instantly get a single merged `.pdf` to download
 
-✅ All image/PDF processing is handled on the backend using **Bytes IO buffer**, and files are sent back immediately  
-❌ No data is stored, everything is **auto-deleted in 5 seconds**
+✅ All image/PDF processing is handled on the backend using **BytesIO** buffer, and files are sent back immediately  
+❌ No data is stored — everything is **auto-deleted in 5 seconds**
 
 ---
 
@@ -54,14 +56,14 @@
 ⚠️ **Your files are NEVER stored.**
 
 - Images and PDFs are **automatically deleted** from the server within 5 seconds of download.
-- No logs, no tracking, no nonsense,just clean, fast processing.
+- No logs, no tracking, no nonsense — just clean, fast processing.
 
 ---
 
 ## ⚠️ Limitations
 
 - Max image size: **40 MB** or **50 megapixels**
-- PDF merge is simple, no reordering or layout control
+- PDF merge is simple — no reordering or layout control
 - Only standard formats (JPEG, PNG) supported
 
 ---
@@ -71,41 +73,8 @@
 Deployed using [**Render.com**](https://render.com/)  
 To run locally:
 
-```
+```bash
 git clone https://github.com/your-username/squeezy.git
 cd squeezy
 pip install -r requirements.txt
 python main.py
-
-Then open your browser at http://localhost:5000
-```
-
----
-
-## 🙋‍♂️ Author
-
-**Ameya Kulkarni**  
-💻 [GitHub](https://github.com/Ameya79)  
-📫 [LinkedIn](https://www.linkedin.com/in/ameya-kulkarni-a31b74246)  
-🎯 [Codolio Profile](https://codolio.com/profile/Ameya%20Kulkarni)
-
-
----
-
-📜 License
-
-MIT License.
-This project is open-source, feel free to fork it, build on it, or use it in your own projects.
-
-
----
-
-⭐ Like the Project?
-
-Drop a ⭐ if it saved your time, and feel free to contribute!
-Suggestions & pull requests are welcome 😊
-
-
-🍋‍🟩🍋‍🟩🍋‍🟩
-
-
