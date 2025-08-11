@@ -1,25 +1,31 @@
-# 🍋‍🟩 Squeezy - Image Compressor, Resizer & Image to PDF Converter/Merger
+# 🍋‍🟩 Squeezy – Image Compressor, Resizer & Image-to-PDF Converter/Merger
 
-**Squeezy** is a beginner-friendly web app built with **Python (Flask)** that compresses, resizes, and converts multiple images into a single PDF — all in the browser, with no file stored beyond 5 seconds, thus maintaining privacy 🔏  
+[![Python](https://img.shields.io/badge/python-3.8%2B-blue)]()
+[![Flask](https://img.shields.io/badge/flask-2.x-lightgrey)]()
+[![Pillow](https://img.shields.io/badge/pillow-9.x-green)]()
+[![License](https://img.shields.io/badge/license-MIT-orange)]()
 
-🌐 **Live Demo**: [squeezy-image-compressor.onrender.com](https://squeezy-image-compressor.onrender.com)
+**Squeezy** is a beginner-friendly **Flask** web app that lets you:
+- Compress & resize images
+- Convert multiple images into a single PDF
+- Do it all instantly in the browser — no storage, no tracking, full privacy 🔏
+
+🌐 **Live Demo:** [squeezy-image-compressor.onrender.com](https://squeezy-image-compressor.onrender.com)
 
 ---
 
 ## 📸 Features
-
 - 📤 Upload any image (`JPG`, `PNG`, etc.)
 - 📏 Resize image by percentage (e.g., 50% of original size)
-- 🗜️ Compress image quality (e.g., reduce to 60% quality)
-- 📄 Convert multiple images into a **single downloadable PDF**
-- ⚡ Instant processing and file download
-- 🧹 **Auto-deletes files** from server 5 seconds after sending — no storage, full privacy
-- 📱 Mobile-friendly UI using Bootstrap 5
+- 🗜️ Compress image quality (e.g., 60% quality)
+- 📄 Convert **multiple images** into a single PDF
+- ⚡ Instant processing + auto-download
+- 🧹 Files **auto-delete after 5 seconds**
+- 📱 Mobile-friendly UI (Bootstrap 5)
 
 ---
 
-## 🛠️ Tech Stack
-
+## 🛠 Tech Stack
 | Part        | Tool             |
 |-------------|------------------|
 | Backend     | Python, Flask    |
@@ -27,84 +33,75 @@
 | Imaging     | Pillow (PIL)     |
 | Deployment  | Render           |
 
-- Uses **BytesIO** buffer for image-to-PDF conversion
+Uses **`BytesIO`** for in-memory file handling — no disk storage beyond processing time.
 
 ---
 
 ## 🚀 How It Works
 
-### 🎯 Image Compression & Resizing
+### 🗜️ Image Compression & Resizing
 1. Upload an image
-2. Choose:
+2. Set:
    - Resize (% of original)
-   - Compress (% quality reduction)
+   - Compress (% quality)
 3. Click **Compress**
-4. Instantly download your optimized image
+4. Instantly download the result
 
-### 📄 Convert Images to PDF
+### 📄 Image-to-PDF Conversion
 1. Upload **multiple images**
-2. Hit **Generate PDF**
-3. Instantly get a single merged `.pdf` to download
+2. Click **Generate PDF**
+3. Instantly get your merged `.pdf`
 
-✅ All image/PDF processing is handled on the backend using **BytesIO** buffer, and files are sent back immediately  
-❌ No data is stored — everything is **auto-deleted in 5 seconds**
+✅ All processing happens in-memory using `BytesIO`  
+❌ No files are permanently stored — deleted after **5 seconds**
 
 ---
 
-## 🔐 Security & Privacy
-
-⚠️ **Your files are NEVER stored.**
-
-- Images and PDFs are **automatically deleted** from the server within 5 seconds of download.
-- No logs, no tracking, no nonsense — just clean, fast processing.
+## 🔐 Privacy First
+- **No storage:** Files are deleted within **5 seconds** after download
+- **No logs:** No tracking or saving any metadata
+- Just clean, fast, private processing 🍋‍🟩
 
 ---
 
 ## ⚠️ Limitations
-
-- Max image size: **40 MB** or **50 megapixels**
-- PDF merge is simple — no reordering or layout control
-- Only standard formats (JPEG, PNG) supported
+- Max image size: **40 MB** or **50 MP**
+- PDF merge is simple — no reordering/layout options
+- Only `JPEG` & `PNG` supported
 
 ---
 
-## ⚙️ Deployment
-
-Deployed using [**Render.com**](https://render.com/)  
-To run locally:
-
+## 🖥️ Run Locally
 ```bash
-git clone https://github.com/your-username/squeezy.git
-cd squeezy
-pip install -r requirements.txt
-python main.py
+$ git clone https://github.com/your-username/squeezy.git
+$ cd squeezy
+$ pip install -r requirements.txt
+$ python main.py
 
-Then open your browser at http://localhost:5000
+Visit http://localhost:5000
 
 
 ---
 
-🙋‍♂️ Author
+📤 Deployment
+
+Render: Push repo → Create new web service → Start command: python main.py
+
+
+
+---
+
+👤 Author
 
 Ameya Kulkarni
-💻 GitHub
-📫 LinkedIn
-🎯 Codolio Profile
+💻 GitHub | 📫 LinkedIn | 🎯 Codolio
 
 
 ---
 
-📜 License
+📜 License: MIT — free to use, modify, and share.
 
-MIT License.
-This project is open-source — feel free to fork it, build on it, or use it in your own projects.
+⭐ If Squeezy saved your time, drop a star and spread the word! 🍋‍🟩
 
-
----
-
-⭐ Like the Project?
-Drop a ⭐ if it saved your time, and feel free to contribute! Suggestions & pull requests are welcome 😊
-
-🍋‍🟩🍋‍🟩🍋‍🟩
 
 
