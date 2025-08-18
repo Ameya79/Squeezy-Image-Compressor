@@ -94,7 +94,6 @@ Render: Push repo → Create new web service → Start command: python main.py
 👤 Author
 
 Ameya Kulkarni
-💻 GitHub | 📫 LinkedIn | 🎯 Codolio
 
 
 ---
