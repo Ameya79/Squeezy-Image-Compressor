@@ -12,6 +12,8 @@
 
 🌐 **Live Demo:** [squeezy-image-compressor.onrender.com](https://squeezy-image-compressor.onrender.com)
 
+Note: the App may take time to wake up, please be patient
+
 ---
 
 ## 📸 Features
