@@ -1,0 +1,10 @@
+services:
+  squeezy:
+    build: .
+    container_name: squeezy
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+    volumes:
+      - .:/app

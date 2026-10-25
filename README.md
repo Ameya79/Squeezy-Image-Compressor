@@ -1,108 +1,126 @@
-# 🍋‍🟩 Squeezy – Image Compressor, Resizer & Image-to-PDF Converter/Merger
+<h1 align="center">🍋‍🟩 Squeezy</h1>
 
-[![Python](https://img.shields.io/badge/python-3.8%2B-blue)]()
-[![Flask](https://img.shields.io/badge/flask-2.x-lightgrey)]()
-[![Pillow](https://img.shields.io/badge/pillow-9.x-green)]()
-[![License](https://img.shields.io/badge/license-MIT-orange)]()
+<p align="center">
+  <strong>Fast, private image compression, resizing, and image-to-PDF conversion.</strong>
+</p>
 
-**Squeezy** is a beginner-friendly **Flask** web app that lets you:
-- Compress & resize images
-- Convert multiple images into a single PDF
-- Do it all instantly in the browser — no storage, no tracking, full privacy 🔏
+<p align="center">
+  <a href="https://github.com/Ameya79/Squeezy-Image-Compressor/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
+  <img src="https://img.shields.io/badge/python-3.8%2B-blue.svg" alt="Python 3.8+">
+  <img src="https://img.shields.io/badge/flask-2.x-lightgrey.svg" alt="Flask 2.x">
+  <img src="https://img.shields.io/badge/pillow-Image%20Engine-green.svg" alt="Pillow Engine">
+  <img src="https://img.shields.io/badge/privacy-100%25%20ephemeral-purple.svg" alt="Ephemeral Privacy">
+</p>
 
-🌐 **Live Demo:** [squeezy-image-compressor.onrender.com](https://squeezy-image-compressor.onrender.com)
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#run-with-docker">Run with Docker</a> •
+  <a href="#local-development">Local Development</a> •
+  <a href="#how-it-works">How It Works</a> •
+  <a href="#tech-stack">Tech Stack</a>
+</p>
 
-Note: the App may take time to wake up, please be patient
+---
+
+**Squeezy** is a lightweight Python web application built with Flask and Pillow that lets you compress, resize, and convert images into multi-page PDFs instantly in your browser. All processing is kept ephemeral with automated cleanup: no third-party tracking, no permanent database, and complete privacy.
+
+🌐 **Live Demo:** [squeezy-image-compressor.onrender.com](https://squeezy-image-compressor.onrender.com)  
+*(Note: Free-tier cloud instances may take a few seconds to spin up on first request.)*
 
 ---
 
 ## 📸 Features
-- 📤 Upload any image (`JPG`, `PNG`, etc.)
-- 📏 Resize image by percentage (e.g., 50% of original size)
-- 🗜️ Compress image quality (e.g., 60% quality)
-- 📄 Convert **multiple images** into a single PDF
-- ⚡ Instant processing + auto-download
-- 🧹 Files **auto-delete after 5 seconds**
-- 📱 Mobile-friendly UI (Bootstrap 5)
+
+- 📤 **Broad Format Support**: Upload any image (`JPG`, `PNG`, `WebP`).
+- 📏 **Proportional Resizing**: Scale images by percentage (e.g., 50% or 25% of original dimensions) with high-quality Lanczos resampling.
+- 🗜️ **Configurable Compression**: Control output quality and file size reduction.
+- 📄 **Multi-Image PDF Merger**: Bundle multiple photos into a single, clean PDF document.
+- ⚡ **Instant Processing**: In-memory buffers via `io.BytesIO` for low-latency transformations.
+- 🧹 **Automatic Cleanup**: Temporary files auto-delete within 5 seconds of creation.
+- 📱 **Responsive UI**: Clean Bootstrap 5 interface designed for both mobile and desktop screens.
 
 ---
 
-## 🛠 Tech Stack
-| Part        | Tool             |
-|-------------|------------------|
-| Backend     | Python, Flask    |
-| Frontend    | HTML5, Bootstrap |
-| Imaging     | Pillow (PIL)     |
-| Deployment  | Render           |
+## 🐳 Run with Docker
 
-Uses **`BytesIO`** for in-memory file handling — no disk storage beyond processing time.
+Anyone can run Squeezy locally with zero manual environment configuration:
+
+```bash
+# Clone the repository
+git clone https://github.com/Ameya79/Squeezy-Image-Compressor.git
+cd Squeezy-Image-Compressor
+
+# Start the web app with Docker Compose
+docker compose up
+```
+
+Once started, open [http://localhost:5000](http://localhost:5000) in your browser.
+
+---
+
+## 🖥️ Local Development
+
+If you prefer running directly in Python:
+
+```bash
+# 1. Clone repository
+git clone https://github.com/Ameya79/Squeezy-Image-Compressor.git
+cd Squeezy-Image-Compressor
+
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Start development server
+python main.py
+```
+
+The application will be live at `http://localhost:5000`.
 
 ---
 
 ## 🚀 How It Works
 
-### 🗜️ Image Compression & Resizing
-1. Upload an image
-2. Set:
-   - Resize (% of original)
-   - Compress (% quality)
-3. Click **Compress**
-4. Instantly download the result
+### 1. Image Compression and Resizing
+1. Upload an image file.
+2. Select your desired resize percentage and compression quality.
+3. Click **Compress** to trigger immediate processing and automatic file download.
 
-### 📄 Image-to-PDF Conversion
-1. Upload **multiple images**
-2. Click **Generate PDF**
-3. Instantly get your merged `.pdf`
+### 2. Image to PDF Conversion
+1. Select one or more images.
+2. Click **Generate PDF**.
+3. Download your merged PDF directly in your browser.
 
-✅ All processing happens in-memory using `BytesIO`  
-❌ No files are permanently stored — deleted after **5 seconds**
+All processing operates with in-memory streams using `io.BytesIO` whenever possible. Any temporary cache files created during processing are purged automatically after 5 seconds.
 
 ---
 
-## 🔐 Privacy First
-- **No storage:** Files are deleted within **5 seconds** after download
-- **No logs:** No tracking or saving any metadata
-- Just clean, fast, private processing 🍋‍🟩
+## 🛠 Tech Stack
+
+| Component | Technology | Description |
+|:---|:---|:---|
+| **Backend** | Python 3, Flask | Lightweight web routing and request handling |
+| **Imaging Engine** | Pillow (PIL), OpenCV | Image resizing, compression, and PDF generation |
+| **Frontend** | HTML5, Bootstrap 5 | Mobile-friendly responsive user interface |
+| **Production Server** | Gunicorn | Production WSGI HTTP server |
+| **Containerization** | Docker, Docker Compose | Reproducible cross-platform local runtime |
 
 ---
 
-## ⚠️ Limitations
-- Max image size: **40 MB** or **50 MP**
-- PDF merge is simple — no reordering/layout options
-- Only `JPEG` & `PNG` supported
+## 🔐 Privacy Guarantee
+
+- **Zero Permanent Storage**: Uploaded images are never retained on the server.
+- **Zero Telemetry**: No third-party analytics or user activity tracking.
+- **Auto Cleanup**: Background garbage collector deletes files within 5 seconds.
 
 ---
 
-## 🖥️ Run Locally
-```bash
-$ git clone https://github.com/your-username/squeezy.git
-$ cd squeezy
-$ pip install -r requirements.txt
-$ python main.py
+## 👤 Author
 
-Visit http://localhost:5000
-
+**Ameya Kulkarni**  
+GitHub: [@Ameya79](https://github.com/Ameya79)
 
 ---
 
-📤 Deployment
+## 📜 License
 
-Render: Push repo → Create new web service → Start command: python main.py
-
-
-
----
-
-👤 Author
-
-Ameya Kulkarni
-
-
----
-
-📜 License: MIT — free to use, modify, and share.
-
-⭐ If Squeezy saved your time, drop a star and spread the word! 🍋‍🟩
-
-
-
+Distributed under the **MIT License**. Free to use, modify, and distribute.
