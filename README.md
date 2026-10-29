@@ -1,4 +1,4 @@
-<h1 align="center">🍋‍🟩 Squeezy</h1>
+<h1 align="center">🍋‍🟩 Squeezy </h1>
 
 <p align="center">
   <strong>Fast, private image compression, resizing, and image-to-PDF conversion.</strong>
